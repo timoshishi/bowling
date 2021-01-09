@@ -1,37 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import Frame from './Frame.jsx';
+import FrameTenth from './FrameTenth.js';
+import Total from './Total';
+import NameBox from './NameBox.js';
+import ScoreInput from './ScoreInput.js';
 const Scorecard = (props) => {
+  const [name, setName] = useState('');
   return (
-    <div className='container'>
-      <div className='scorecard'>
-        <div className='name-box'>
-          <div className='name'>
-            <div className='header'>Name</div>
-          </div>
-        </div>
-        <div className='score-cell'>
-          <div className='header score-header'>Frame: 1</div>
-          <div className='roll-boxes'>
-            <div className='roll'></div>
-            <div className='roll'></div>
-          </div>
-        </div>
-        <div className='score-cell'>
-          <div className='header score-header'>Frame: 10</div>
-          <div className='roll-final-box'>
-            <div className='roll-final'></div>
-            <div className='roll-final'></div>
-            <div className='roll-final'></div>
-          </div>
-        </div>
-        <div className='name-box'>
-          <div className='name'>
-            <div className='header'>Total</div>
-          </div>
+    <>
+      <div className='container'>
+        <div className='scorecard'>
+          <NameBox name={name} setName={setName} />
+          <Frame />
+          <FrameTenth />
+          <Total />
         </div>
       </div>
-    </div>
+      <div className='score-input'>
+        <ScoreInput />
+      </div>
+    </>
   );
 };
 
